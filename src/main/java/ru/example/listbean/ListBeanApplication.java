@@ -41,6 +41,10 @@ public class ListBeanApplication implements ApplicationRunner {
         return value;
     }
 
+    public List<Processor> getProcessorList() {
+        return processorList;
+    }
+
     public Map<String, Processor> getProcessorMap() {
         return processorMap;
     }
