@@ -8,17 +8,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ru.example.listbean.proccessor.Processor;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootApplication
 public class ListBeanApplication implements ApplicationRunner {
 
     private final List<Processor> processorList;
+    private final Map<String, Processor> processorMap;
 
     @Value("${stringValue}")
     private String value;
 
-    public ListBeanApplication(List<Processor> processorList) {
+    public ListBeanApplication(List<Processor> processorList, Map<String, Processor> processorMap) {
         this.processorList = processorList;
+        this.processorMap = processorMap;
     }
 
     public static void main(String[] args) {
@@ -36,5 +39,9 @@ public class ListBeanApplication implements ApplicationRunner {
 
     public String getValue() {
         return value;
+    }
+
+    public Map<String, Processor> getProcessorMap() {
+        return processorMap;
     }
 }

@@ -13,9 +13,17 @@ class ListBeanApplicationTests {
     private ListBeanApplication listBeanApplication;
 
     @Test
-    void contextLoads() {
+    void checkArrayList() {
 
+        assertThat(listBeanApplication.getProcessorMap().size()).isEqualTo(2);
         assertThat(listBeanApplication.getValue()).isEqualTo("TESTSTRING");
+    }
+
+    @Test
+    void checkMap() {
+
+        assertThat(listBeanApplication.getProcessorMap().size()).isEqualTo(2);
+        assertThat(listBeanApplication.getProcessorMap().get("removeSpaceProcessor").process("Test String")).isEqualTo("TestString");
     }
 
 }
